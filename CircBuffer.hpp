@@ -8,9 +8,11 @@
 template<typename T>
 class CircularBuffer 
 {
-    std::vector<T> buffer_;
+    std::unique_ptr<char[]> buffer_; 
     size_t         head_;
     size_t         tail_;
+    size_t         capacity_;               // Total capacity of the buffer in bytes
+    size_t         element_size_;           // Size of each element
     bool           full_;
 
     std::mutex mutex_;                  // Mutex to protect buffer access
@@ -18,9 +20,10 @@ class CircularBuffer
     std::condition_variable not_empty_; // Condition variable for consumer (buffer not empty)
 public:
     CircularBuffer(size_t size);
-    void Put(T item);
+    void Put(T& item);
     T    Get();
     void PrintState(const std::string &role);
+    ~CircularBuffer();    
 };
 
 #include "CircBuffer.tpp"
