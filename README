@@ -1,1 +1,49 @@
-This example shows how to manage a circular buffer in a multithreading environment.
+    <h1>Circular Buffer Project</h1>
+
+    <p>This project implements a <strong>Circular Buffer</strong> in C++. It includes header and template implementation files for creating and managing a circular buffer data structure, as well as a sample <code>main.cpp</code> to demonstrate how to use the buffer.</p>
+
+    <h2>Files</h2>
+    <ul>
+        <li><code>CircBuffer.hpp</code>: Header file containing the declaration of the Circular Buffer class.</li>
+        <li><code>CircBuffer.tpp</code>: Template file containing the implementation of the Circular Buffer methods.</li>
+        <li><code>main.cpp</code>: Example usage of the Circular Buffer in a C++ program.</li>
+        <li><code>README</code>: Documentation file explaining the structure of the project and how to use the Circular Buffer.</li>
+    </ul>
+
+    <h2>Features</h2>
+    <ul>
+        <li>Efficient insertion and retrieval of elements in a circular fashion.</li>
+        <li>Simple API with functions like <code>Put</code>, <code>Get</code>, and <code>PrintState</code>.</li>
+        <li>Template-based implementation, allowing flexibility for different data types.</li>
+    </ul>
+
+    <h2>Usage</h2>
+    <p>To use the Circular Buffer, include both the <code>CircBuffer.hpp</code> and <code>CircBuffer.tpp</code> files in your project. You can then create a buffer, insert elements, retrieve them, and print the current state of the buffer.</p>
+
+    <h3>Example</h3>
+    <pre><code>#include "CircBuffer.hpp"
+
+int main() {
+    // Create a circular buffer for integers with size 5
+    CircularBuffer<int> buffer(5);
+
+    // Add some elements
+    buffer.Put(10);
+    buffer.Put(20);
+    buffer.Put(30);
+
+    // Retrieve an element
+    int value = buffer.Get();
+
+    // Print the current state of the buffer
+    buffer.PrintState();
+
+    return 0;
+}
+    </code></pre>
+
+    <h2>Compiling the Project</h2>
+    <p>To compile the project, use the following command:</p>
+    <pre><code>g++ -o CircularBuffer main.cpp</code></pre>
+
+    <p>This will create an executable called <code>CircularBuffer</code>, which you can run to test the circular buffer implementation.</p>
